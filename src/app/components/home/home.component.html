@@ -1,0 +1,65 @@
+<section>
+  <div class="row g-3">
+    <div class="col-md-5 col-lg-4 d-flex align-items-center">
+      <div>
+        <div class="brdr w-25 mb-3"></div>
+        <h2 class="h3 display-4"> Trending <br> Movies <br> Right Now </h2>
+        <p class="activeL">Most Movies Watched by Week</p>
+        <div class="w-100 brdr mt-3"></div>
+      </div>
+
+    </div>
+    <div class="col-md-3 col-lg-2 cursor-pointer" *ngFor="let movie of movies">
+      <span [routerLink]="['/moviedetails',movie.id,movie.media_type]">
+      <div class="position-relative my-2 ">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path" class="w-100 rounded-3" alt="">
+        <p>{{movie?.title}}</p>
+        <div class="bg-vote rounded-3  top-0 end-0 position-absolute p-1">{{movie?.vote_average.toFixed(1)}}</div>
+      </div>
+    </span>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-5 col-lg-4 d-flex align-items-center">
+      <div>
+        <div class="brdr w-25 mb-3"></div>
+        <h2 class="h3 display-4"> Trending <br> TV <br> Right Now </h2>
+        <p class="activeL">Most TV Watched by Week</p>
+        <div class="w-100 brdr mt-3"></div>
+      </div>
+
+    </div>
+    <div class="col-md-3 col-lg-2 cursor-pointer" *ngFor="let tv of trendingTv">
+      <span [routerLink]="['/moviedetails',tv.id,tv.media_type]">
+      <div class="position-relative my-2 ">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + tv?.poster_path" class="w-100 rounded-3" alt="">
+        <p>{{tv?.name}}</p>
+        <div class="bg-vote rounded-3  top-0 end-0 position-absolute p-1">{{tv?.vote_average.toFixed(1)}}</div>
+      </div>
+    </span>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-5 col-lg-4 d-flex align-items-center">
+      <div>
+        <div class="brdr w-25 mb-3"></div>
+        <h2 class="h3 display-4"> Trending <br> Actors <br> Right Now </h2>
+        <p class="activeL">Most Actors Watched by Week</p>
+        <div class="w-100 brdr mt-3"></div>
+      </div>
+
+    </div>
+    <div class="col-md-3 col-lg-2 cursor-pointer" *ngFor="let actor of trendingActors">
+      <span [routerLink]="['/moviedetails', actor.id , actor.media_type]">
+      <div class="position-relative my-2 ">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + actor?.profile_path" class="w-100 rounded-3" alt="">
+        <p>{{actor?.name}}</p>
+        <div class="bg-vote rounded-3  top-0 end-0 position-absolute p-1">{{actor?.popularity.toFixed(0)}}</div>
+      </div>
+    </span>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-color{
+  background-color: #032541 !important
+}
+.activeL{
+  color: aquamarine !important;
+}
+
+.bg-btn{
+  background-color: aquamarine !important;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.brdr{
+  background-color: #B1B1B2;
+  height: 1px;
+}
+.bg-vote{
+  background-color: aquamarine !important;
+  color:#032541
+}
+body{
+  color: wheat
+}
+.wheat{
+  color: wheat !important
+}
+.pagColor{
+  color:#032541
+
+}
+.col-md-3:hover , .col-lg-2:hover , .col-sm-12:hover , .col-xsm-12:hover{
+  transform: scale(1.1);
+}
+.col-md-3 , .col-lg-2{
+  transition: transform 0.5s;
+}

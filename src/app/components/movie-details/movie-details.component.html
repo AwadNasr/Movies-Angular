@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-4" >
+    <img *ngIf="movie?.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+movie?.poster_path" class="w-100 rounded-3" alt="">
+    <img *ngIf="movie?.profile_path" [src]="'https://image.tmdb.org/t/p/w500'+movie?.profile_path" class="w-100 rounded-3" alt="">
+  </div>
+  <div class="col-md-8 ">
+    <div class="my-2 activeL ">
+      <h2 *ngIf="movie?.title" class="display-5">{{movie?.title}}</h2>
+      <h2 *ngIf="movie?.name" class="display-5">{{movie?.name}}</h2>
+    </div>
+    <p class="my-2">{{movie?.overview}}</p>
+    <p class="my-2">{{movie?.biography}}</p>
+    <h4 class="activeL my-2" *ngIf="movie?.original_language">Language : <span class="wheat text-uppercase">{{movie?.original_language}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.release_date">Release date : <span class="wheat ">{{movie?.release_date}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.number_of_seasons">Number of seasons : <span class="wheat ">{{movie?.number_of_seasons}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.number_of_episodes">Number of episodes : <span class="wheat ">{{movie?.number_of_episodes}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.birthday">Date of birth : <span class="wheat">{{movie?.birthday}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.place_of_birth">Place of birth : <span class="wheat">{{movie?.place_of_birth}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.known_for_department">Role : <span class="wheat">{{movie?.known_for_department}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.vote_average">Voting : <span class="wheat ">{{movie?.vote_average.toFixed(2)}}</span></h4>
+    <h4 class="activeL my-2" *ngIf="movie?.popularity">Popularity : <span class="wheat">{{movie?.popularity.toFixed(0)}}</span></h4>
+  </div>
+</div>
+
+<div class="brdr w-25 my-3" *ngIf="movie?.vote_average"></div>
+<h3 class="activeL display-5 my-3"  *ngIf="movie?.title">Similar Movies </h3>
+<h3 class="activeL display-5 my-3"  *ngIf="movie?.name && movie?.poster_path">Similar Tv </h3>
+<div class="brdr w-50 mb-3" *ngIf="movie?.vote_average"></div>
+
+<div class="row gy-2">
+
+  <div class="col-md-3 col-lg-2 cursor-pointer" *ngFor="let movie of similarMovies" >
+  <div *ngIf="!movie?.profile_path">
+    <div class="position-relative my-2 " (click)="getMovie(movie.id,type)">
+      <img  [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path" class="w-100 rounded-3" alt="">
+      <p *ngIf="movie?.title">{{movie?.title}}</p>
+      <p *ngIf="movie?.name">{{movie?.name}}</p>
+      <div class="bg-vote rounded-3  top-0 end-0 position-absolute p-1">{{movie?.vote_average.toFixed(1)}}</div>
+    </div>
+  </div>
+  </div>
+</div>

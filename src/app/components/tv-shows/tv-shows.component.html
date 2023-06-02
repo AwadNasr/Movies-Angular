@@ -1,0 +1,27 @@
+<div class="row g-3">
+  <div class="col-md-3 col-lg-2 cursor-pointer" *ngFor="let tv of tv">
+    <span [routerLink]="['/moviedetails',tv.id,mediaType]">
+    <div class="position-relative my-2 ">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + tv?.poster_path" class="w-100 rounded-3" alt="">
+      <p>{{tv?.name}}</p>
+      <div class="bg-vote rounded-3  top-0 end-0 position-absolute p-1">{{tv?.vote_average.toFixed(1)}}</div>
+    </div>
+  </span>
+  </div>
+</div>
+
+<div class="my-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item ">
+        <a class="page-link bg-btn cursor-pointer pagColor" (click)="decreasePageNum()">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link pagColor cursor-pointer" (click)="getAlltv(1)">1</a></li>
+      <li class="page-item"><a class="page-link pagColor cursor-pointer" (click)="getAlltv(2)">2</a></li>
+      <li class="page-item"><a class="page-link pagColor cursor-pointer" (click)="getAlltv(3)">3</a></li>
+      <li class="page-item">
+        <a class="page-link bg-btn cursor-pointer pagColor" (click)="increasePageNum()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
